@@ -31,7 +31,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           rm: true
-          source: "target/ROOT.jar,docker-compose.yml"
+          source: "target/ROOT.jar,docker-compose.yml,runDocker.sh"
 #          source: "target/ROOT.jar"
           target: ${{ secrets.PROJECT_TARGET }}
       - name: Deploy
@@ -43,6 +43,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: | # 执行命令（运行到服务器）cd：要确保服务器有这个目录； wget：下载上一步的release到服务器； tar：解压； 安装依赖；启动服务
             cd ${{ secrets.PROJECT_TARGET }}
+            chmod 777 runDocker.sh
             docker-compose stop
             docker-compose up -d
 #            ps -ef | grep ROOT.jar | grep -v grep | awk '{print $2}' | xargs kill -9
