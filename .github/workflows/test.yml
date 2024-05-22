@@ -35,7 +35,7 @@ jobs:
           source: "target/ROOT.jar"
           target: ${{ secrets.PROJECT_TARGET }}
       - name: Deploy
-        uses: appleboy/ssh-action@master # 使用ssh链接服务器
+        uses: appleboy/ssh-action@v1.0.3 # 使用ssh链接服务器
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
