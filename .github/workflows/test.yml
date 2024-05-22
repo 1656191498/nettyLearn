@@ -31,8 +31,8 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           rm: true
-#          source: "target/ROOT.jar,docker-compose.yml,runProject.sh"
-          source: "target/ROOT.jar"
+          source: "target/ROOT.jar,docker-compose.yml"
+#          source: "target/ROOT.jar"
           target: ${{ secrets.PROJECT_TARGET }}
       - name: Deploy
         uses: appleboy/ssh-action@v1.0.3 # 使用ssh链接服务器
